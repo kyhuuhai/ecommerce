@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ecommerce</title>
-<%= csrf_meta_tags %>
-<meta name="viewport" content="width=device-width, initial-scale=0.7">
-<%= stylesheet_link_tag "application", media: :all, "data-turbolinks-track": "reload" %>
-<%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <title>FunituresApp</title>
+  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render 'layouts/header' %>
+<%= yield %>
+	<%= render 'layouts/footer' %>
+</body>
 </html>
