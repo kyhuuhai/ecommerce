@@ -58,6 +58,7 @@ gem "figaro"
 gem "validates_timeliness"
 gem "ckeditor"
 gem "font-awesome-sass", "~> 4.7.0"
+gem "sqlite3"
 gem "omniauth-hrsystem",
   git: "https://github.com/framgia-education/omniauth-hrsystem.git"
 gem "bootstrap-datepicker-rails"
