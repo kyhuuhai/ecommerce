@@ -1,0 +1,107 @@
+<div class="header_top">
+   <div class="container">
+      <div class="col-md-12" >
+         <div class="logo">
+            <a href="/home"><img src="<%= asset_path('logo_550x.png') %>"></a>
+         </div>
+         <div class="hed_right">
+            <ul>
+               <li>
+                  <a href="/helps"  style="color: #8a756b;">Help</a>
+               </li>
+               <li>
+                  <a href="/contacts" style="color: #8a756b;">Contact</a>
+               </li>
+               <li>
+                  <a href="/account" style="color: #8a756b;">
+                  <% if current_user %>
+                      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                  <% else %>
+                      <%= link_to "My Account", new_user_session_path %>
+                  <% end %>
+                  </a>
+               </li>
+            </ul>
+            <div class="header-contact">
+               <ul>
+                  <li>
+                     <span class="fa fa-phone" style="color: #abbda5">  </span> 0111.222.333
+                  </li>
+                  <li>
+                     <span class="fa fa-envelope"  style="color: #abbda5"></span> email@example.com
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="navigation">
+   <nav class="navba navbar-default">
+      <div class="navbar-header">
+         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>            
+      </div>
+      <div class="collapse navbar-collapse js-navbar-collapse">
+         <div class="col-md-1"></div>
+         <div class="col-md-5">
+            <ul class="nav navbar-nav"  style="margin-top: 10px">
+                <li> <a href="/">HOME </a></li>
+               <li class="dropdown mega-dropdown">
+                  <%= link_to "PRODUCT", products_path() %>
+                  <ul class="dropdown-menu mega-dropdown-menu">
+                     <li class="col-sm-4">
+                        <ul>
+                           <li class="title-product">BRAND
+                            
+                           </li>
+                        </ul>
+                     </li>
+                     <li class="col-sm-4">
+                        <ul>
+                           <li class="title-product">STYLE
+                             
+                           </li> 
+                        </ul>
+                     </li>
+                     <li class="col-sm-4">
+                        <ul>
+                           <li class="title-product">COLLECTION
+                             
+                           </li>                       
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li> <a href="/design">DESIGN </a></li>
+                 <li> <a href="/about">ABOUT </a></li>
+               <li><a href="/contacts">CONTACT</a></li>
+            </ul>
+         </div>
+         <div class="col-md-6" style="padding-right: 75px;">
+            <ul class="nav navbar-nav navbar-right">
+               <li><a href="/cart">
+                  <i class="fa fa-shopping-cart fa-lg " ></i>
+                  </a>
+               </li>
+               <li>
+                  <a class="account" href="<%= new_user_session_path %>"><i class="fa fa-user fa-lg"></i></a>
+               </li>
+               <li>
+                  <a href="javascript:void(0);" style="margin-top: 5px;">
+                     <div class="search_form" >
+                         <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+                         <%= text_field_tag :search, params[:search], placeholder: "Search products" %>
+                         <% end %>
+                     </div>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+</div>
