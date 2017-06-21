@@ -15,4 +15,9 @@ class Product < ApplicationRecord
   def category_name=(name)
     self.category = Category.find_or_create_by!(name: name) if name.present?
   end
+
+  def self.search term
+    word = term.present? ? term : ""
+    where('LOWER(name) LIKE :term', term: "%#{word.downcase}%")
+  end
 end

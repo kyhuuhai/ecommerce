@@ -19,3 +19,6 @@
 //= require products
 //= require cocoon
 //= require turbolinks
+$(function() {
+  new app.Books;
+});
