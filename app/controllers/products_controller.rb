@@ -2,8 +2,12 @@ class ProductsController < ApplicationController
   before_action :load_product, only: [:edit, :update, :show, :destroy]
 
   def index
-    @products = Product.all
+    @products = Product.search params[:term]
     @categories = Category.all
+    respond_to do |format|
+      format.html
+      format.json { @products }
+    end
   end
 
   def show; end
@@ -16,7 +20,6 @@ class ProductsController < ApplicationController
   def edit; end
 
   def create
-    binding.pry
     @product = Product.new product_params
     if @product.save
       flash[:success] = "Tao Product Thanh Cong"
