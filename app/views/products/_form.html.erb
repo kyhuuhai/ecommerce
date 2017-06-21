@@ -1,0 +1,55 @@
+<%= form_for @product do |f|%>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <form class="form-horizontal" role="form">
+        <fieldset>
+          <legend>Product</legend>
+          <div class="form-group">
+            <%= f.label :name, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.text_field :name, require: true, class: "form-control", placeholder: "Product's name" %>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <%= f.label :description, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.text_field :description, require: true, class: "form-control", placeholder: "Description" %>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <%= f.label :price, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.text_field :price, require: true, class: "form-control", placeholder: "Price" %>
+            </div>
+          </div>
+          <br>
+          <div class="form-group col-md-12 col-sm-12 col-xs-12">
+            <% Product.statuses.keys.each do |status| %>
+              <%= f.radio_button :status, status, class: "col-md-3 col-sm-3 col-xs-6" %>
+              <%= f.label status.to_sym, class: "col-md-3 col-sm-3 col-xs-6" %>
+            <% end %>
+          </div>
+          <br>
+          <div class="form-group">
+            <%= f.label :category_id, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.text_field :category_name,
+                data:{autocomplete_source: categories_path}, require: true,
+                class: "form-control", placeholder: "Category" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+<% end %>
