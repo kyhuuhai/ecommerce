@@ -1,0 +1,147 @@
+.main {
+  width: 100%;
+  margin: auto;
+  color: grey;
+  background-color: #ebe5e2;
+}
+.body {
+  background-color: #ebe5e2;
+}
+h3 {
+  width: 20%;
+  margin-left: 15px;
+}
+h3 .product {
+  list-style-type: none;
+  text-decoration: none;
+}
+.title a {
+  font-size: 24px;
+}
+.sidebartotal {
+  width: 250px;
+  margin-left: 20px;
+}
+.sidebar {
+  margin-top: 30px;
+  margin-left: 5px;
+  text-decoration: none;
+  border: 1px;
+  border-radius: 5px;
+  background-color: white;
+}
+.sidebar ul {
+  padding: 0;
+  list-style-type: none;
+}
+.sidebar ul li {
+  line-height: 30px;
+  width: auto;
+  height: 40px;
+  padding: 0 1em;
+  color: blue;
+}
+.name-category {
+  color: #a52a2a;
+}
+.sidebar ul li a {
+  display: block;
+  margin-left: 5px;
+  text-decoration: none;
+  color: #898989;
+}
+.sidebar ul .content-id:hover {
+  background-color: #36c;
+}
+.sidebar ul li a:hover {
+  color: #eee8aa;
+}
+.sidebar-collection {
+  margin-top: 27px;
+  margin-left: 5px;
+  border: 1px;
+  border-radius: 5px;
+  background-color: white;
+}
+.sidebar-collection ul {
+  padding: 0;
+  list-style-type: none;
+}
+.sidebar-collection ul li {
+  line-height: 30px;
+  width: auto;
+  height: 40px;
+  padding: 0 1em;
+  color: blue;
+}
+.sidebar-collection ul li a {
+  display: block;
+  text-decoration: none;
+  color: #898989;
+}
+.sidebar-collection ul .content-id:hover {
+  background-color: #36c;
+}
+.sidebar-collection ul li a:hover {
+  color: #eee8aa;
+}
+.col-md-9.content {
+  overflow: hidden;
+  margin-top: 45px;
+}
+.content .product {
+  width: 120x;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+  border: 1px;
+  border-radius: 7px;
+  background-color: white;
+}
+.content .product img {
+  width: 200px;
+  margin-top: 10px;
+  text-align: center;
+}
+.next-page {
+  text-align: center;
+}
+.product .information a {
+  font-size: 11px;
+  text-decoration: none;
+  color: #06c;
+}
+.product .information a:hover {
+  color: #cdbe70;
+}
+.img img:hover {
+  -webkit-transition: all .8s;
+     -moz-transition: all .8s;
+      -ms-transition: all .8s;
+       -o-transition: all .8s;
+          transition: all .8s;
+  -webkit-transform: scale(1.2, 1.0);
+     -moz-transform: scale(1.2, 1.0);
+      -ms-transform: scale(1.2, 1.0);
+       -o-transform: scale(1.2, 1.0);
+          transform: scale(1.2, 1.0);
+}
+.filter-products {
+  font-weight: bold;
+  text-align: center;
+  color: #a0522d;
+}
+.title {
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+.active {
+  background-color: #ebe5e2;
+}

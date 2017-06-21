@@ -1,4 +1,3 @@
-
 <div class ="main">
    <div class="body container-fluid">
       <div class="col-md-3">
@@ -11,15 +10,19 @@
                      <% @categories.each do |category| %>
                   <li class="content-id"><%= link_to category.name, products_path(category_id: category.id) %>
                   </li>
+                  <p>
+                     <%= link_to 'Destroy', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
+                     <%= link_to 'Insert', new_category_path(category) %>
+                     <%= link_to 'Update', edit_category_path(category) %>
+                  </p>
                   <% end %>
                </ul>
             </div>
          </div>
       </div>
       <div class="col-md-9 content">
-         <%= render @products %>
       </div>
-      <div class="next-page">
+      <div class="next-page" >
       </div>
    </div>
 </div>
