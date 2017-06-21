@@ -1,11 +1,10 @@
 <div class="col-md-4">
    <div class="product">
       <div class="img">
-
+         <%= image_tag product.pictures.first.name.url %>
       </div>
       <div class="information">
-         <a class="header">
-         <%= product.name %></a>
+         <%= link_to product.name, edit_product_path(product)%>
          <br>
          <%= product.price %>
          <br>

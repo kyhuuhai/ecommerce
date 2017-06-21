@@ -17,3 +17,5 @@
 //= require bootstrap-sprockets
 //= require devise
 //= require products
+//= require cocoon
+//= require turbolinks

@@ -25,21 +25,36 @@
             </div>
           </div>
           <br>
-          <div class="form-group col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <%= f.label :status, class: "col-sm-1 control-label" %>
             <% Product.statuses.keys.each do |status| %>
-              <%= f.radio_button :status, status, class: "col-md-3 col-sm-3 col-xs-6" %>
-              <%= f.label status.to_sym, class: "col-md-3 col-sm-3 col-xs-6" %>
+              <%= f.radio_button :status, status, class: "col-md-2 col-sm-2 col-xs-4" %>
+              <%= f.label status.to_sym, class: "col-md-3 col-sm-2 col-xs-4" %>
             <% end %>
           </div>
           <br>
+
           <div class="form-group">
-            <%= f.label :category_id, class: "col-sm-2 control-label" %>
+            <%= f.label :pictures, class: "col-md-2 control-label"%>
+            <div class="col-md-10">
+              <table class="user-photo-form">
+                <%= f.fields_for :pictures do |picture| %>
+                  <%= render "picture_fields", f: picture %>
+                <% end %>
+                <%= link_to_add_association "add more image", f, :pictures, class: "btn btn-default" %>
+              </table>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <%= f.label :category_id, class: "col-md-2 control-label" %>
             <div class="col-sm-10">
               <%= f.text_field :category_name,
                 data:{autocomplete_source: categories_path}, require: true,
                 class: "form-control", placeholder: "Category" %>
             </div>
           </div>
+          <br>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <div class="pull-right">
