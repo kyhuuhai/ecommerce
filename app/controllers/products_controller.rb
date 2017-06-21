@@ -10,11 +10,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.pictures.build
   end
 
   def edit; end
 
   def create
+    binding.pry
     @product = Product.new product_params
     if @product.save
       flash[:success] = "Tao Product Thanh Cong"
@@ -52,6 +54,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit :name, :price, :description, :status, :category_name
+    params.require(:product).permit :name, :price, :description, :status, :category_name,
+      pictures_attributes: [:id, :name, :image_cache, :_destroy]
   end
 end
