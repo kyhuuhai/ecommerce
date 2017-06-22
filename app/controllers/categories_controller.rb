@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   before_action :load_category, only: [:edit, :update, :show, :destroy]
 
   def index
