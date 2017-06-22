@@ -19,6 +19,7 @@
 //= require products
 //= require cocoon
 //= require turbolinks
+//= require cable
 $(function() {
   new app.Books;
 });

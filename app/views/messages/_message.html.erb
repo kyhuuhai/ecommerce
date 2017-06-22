@@ -1,0 +1,31 @@
+<% if message.user != current_user %>
+  <div class="card">
+    <div class="card-block">
+      <div class="row">
+        <div class="col-md-11">
+          <p class="card-text">
+            <span class="text-muted"><p style="color: red"><%= message.user.name %> at <%= message.timestamp %> says</p>
+
+            </span><br>
+            <%= message.body %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+<div class="card">
+  <div class="card-block">
+    <div class="row">
+      <div class="col-md-11">
+        <p class="card-text">
+          <span class="text-muted"><p style="color: blue"><%= message.user.name %> at <%= message.timestamp %> says</p>
+          </span><br>
+          <%= message.body %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
