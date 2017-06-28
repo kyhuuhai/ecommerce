@@ -1,0 +1,15 @@
+<table class="table table-hover table-bordered edu-categories-management">
+  <thead>
+    <tr>
+      <th><%= t ".name" %></th>
+      <th><%= t ".setting" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render "category", categories: categories %>
+  </tbody>
+</table>
+<div class="edu-categories-management-paginate">
+  <%= paginate categories %>
+</div>
+

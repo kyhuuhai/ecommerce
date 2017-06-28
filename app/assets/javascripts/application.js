@@ -20,6 +20,8 @@
 //= require cocoon
 //= require turbolinks
 //= require cable
+//= require categories
+
 $(function() {
   new app.Books;
 });

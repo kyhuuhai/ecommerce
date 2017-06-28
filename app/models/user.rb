@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :carts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  enum role: [:user, :admin]
+
   def name
     email.split('@')[0]
   end

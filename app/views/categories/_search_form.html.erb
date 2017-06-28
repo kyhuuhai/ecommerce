@@ -1,0 +1,7 @@
+<%= search_form_for query_categories,
+  url: categories_path do |f| %>
+  <div class="search-box">
+    <%= f.search_field :name_cont,
+      placeholder: "Search form", class: "form-control" %>
+  </div>
+<% end %>
