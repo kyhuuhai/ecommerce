@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :products
   resources :categories
+  resources :carts
+  resources :cart_details
   mount ActionCable.server => '/cable'
 end

@@ -1,6 +1,6 @@
 <div class="col-md-4">
    <div class="product">
-      <div class="img">
+      <div class="product-img">
          <%= image_tag product.pictures.first.name.url %>
       </div>
       <div class="information">
@@ -8,9 +8,11 @@
          <br>
          <%= product.price %>
          <br>
-          <a class="btn btn-success" href="#">Add to cart</a>
-         <br>
          <%= product.category_name %>
+           <div id="cart-group-button-<%= product.id %>">
+            <%= cart_button @current_cart, product.id %>
+           </div>
+         <br>
       </div>
    </div>
 </div>

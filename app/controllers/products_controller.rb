@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: [:edit, :update, :show, :destroy]
+  before_action :current_cart, only: :index
+  before_action :load_session_cart_details, only: :index
 
   def index
     @products = Product.search params[:term]
@@ -30,20 +32,36 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if @product.destroy
-      flash[:success] = "Xoa Product Thanh Cong"
-      redirect_to products_path
+    if request.xhr?
+      @products = Product.find(params[:ids])
+      @products.map {|p| p.update_attributes(category_id: nil)}
+      respond_to do |format|
+        format.json{render json: {cate_id: params[:cate_id]}, status: "200"}
+      end
     else
-      flash[:success] = "Xoa Product that bai"
+      if @product.destroy
+        flash[:success] = "Xoa Product Thanh Cong"
+        redirect_to products_path
+      else
+        flash[:success] = "Xoa Product that bai"
+      end
     end
   end
 
   def update
-    if @product.update_attributes product_params
-      flash[:success] = "Thay Doi Product Thanh Cong"
-      redirect_to products_path
+    if request.xhr?
+      @products = Product.find(params[:ids])
+      @products.map {|p| p.update_attributes(category_id: params[:cate_id])}
+      respond_to do |format|
+        format.json{render json: {cate_id: params[:cate_id]}, status: "200"}
+      end
     else
-      render :edit
+      if @product.update_attributes product_params
+        flash[:success] = "Thay Doi Product Thanh Cong"
+        redirect_to products_path
+      else
+        render :edit
+      end
     end
   end
 
@@ -57,7 +75,9 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit :name, :price, :description, :status, :category_name,
-      pictures_attributes: [:id, :name, :image_cache, :_destroy]
+    unless request.xhr?
+      params.require(:product).permit :name, :price, :description, :status, :category_name,
+        pictures_attributes: [:id, :name, :image_cache, :_destroy]
+    end
   end
 end

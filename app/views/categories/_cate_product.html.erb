@@ -1,0 +1,12 @@
+<div class="category-<%= id %>">
+  <div class="checkbox">
+    <label><input type="checkbox" id="check_all">Check All</label>
+  </div>
+  <% products.each do |product| %>
+    <div class="cate-product">
+      <input type="checkbox" class="checkbox-inline product-checkbox" value="<%= product.id %>">
+      <%= image_tag product.pictures.first.name.url, class: "cate-product-img" %>
+      <b><%= product.name %></b>
+    </div>
+  <% end %>
+</div>

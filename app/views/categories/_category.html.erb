@@ -6,6 +6,30 @@
         class: "btn btn-default edit-edu-category" %>
       <%= link_to t(".delete"), "javascript:;", data: {id: category.id},
         class: "btn btn-danger delete-edu-category" %>
+      <button type="button" class="btn btn-info" data-toggle="modal" id="add_product"
+        data-target="#productModal<%= category.id %>" data-id="<%= category.id %>">Add product</button>
+      <button type="button" class="btn btn-warning" data-toggle="modal" id="remove_product"
+        data-target="#productModal<%= category.id %>" data-id="<%= category.id %>">Remove product</button>
     </td>
   </tr>
+  <div id="productModal<%= category.id %>" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add products for <%= category.name %></h4>
+        </div>
+        <div class="modal-body" id="cate_product_<%= category.id %>">
+          <% if @products.present? %>
+            <%= render "cate_product", products: @products, id: category.id %>
+          <% else %>
+            No Products yet
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

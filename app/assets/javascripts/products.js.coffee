@@ -1,6 +1,9 @@
-jQuery ->
-  $('#product_category_name').autocomplete
-    source: $('#product_category_name').data('autocomplete-source')
+# $ ->
+#   $('#product_category_name').autocomplete
+#     source: $('#product_category_name').data('autocomplete-source')
+#     focus
+#     $(this).data("autocomplete").search($(this).val());
+
 $ ->
   onAddFile = (event) ->
     file = event.target.files[0]
