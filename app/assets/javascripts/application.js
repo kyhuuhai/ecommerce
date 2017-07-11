@@ -21,6 +21,7 @@
 //= require turbolinks
 //= require cable
 //= require categories
+//= require carts
 
 $(function() {
   new app.Books;

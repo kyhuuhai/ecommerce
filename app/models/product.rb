@@ -8,6 +8,8 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
+  scope :not_in, ->ids { where.not id: ids }
+
   def category_name
     category.try(:name)
   end

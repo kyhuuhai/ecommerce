@@ -1,9 +1,12 @@
 module ApplicationHelper
 
-  module ApplicationHelper
-    def gravatar_for(user, opts = {})
-      opts[:alt] = user.name
-      image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}?s=#{opts.delete(:size) { 40 }}", opts
+  def cart_button cart, product_id
+    if @cart_detail_session.include? product_id.to_s
+      link_to "Remove from cart", "#", class: "btn btn-danger remove-cart",
+        data: {p_id: product_id}
+    else
+      link_to "Add to cart", "#", class: "btn btn-success add-cart",
+        data: {p_id: product_id}
     end
   end
 end
