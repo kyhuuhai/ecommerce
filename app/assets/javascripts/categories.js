@@ -131,6 +131,18 @@ $(document).ready(function(){
       $('#q_name_cont').serialize(), null, 'script');
   });
 
+  $('body').on('keyup', '#input-product-search', function() {
+    var cate_id = $(this).closest('a')[0].dataset.id;
+    var product_ids = []
+    $(".cate-product input:checkbox").each(function(){
+      product_ids.push($(this).val());
+    });
+    $.get('/categories', {product_name: $('#input-product-search').val(),
+      product_ids: product_ids, category_id: cate_id}, null, 'json').done(function( data ) {
+      $('#cate_product_'+ cate_id).html(data['html_product']);
+    });
+  });
+
   $('body').on('focus', '#product_category_name', function(e){
      $('#product_category_name').autocomplete({
       source: $('#product_category_name').data('autocomplete-source'),

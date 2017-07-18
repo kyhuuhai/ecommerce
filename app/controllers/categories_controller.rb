@@ -7,10 +7,11 @@ class CategoriesController < ApplicationController
       .page(params[:page]).per 10
     @categories = Category.order(:name).search_by_name(params[:term]) if params[:term].present?
     @category = Category.new
-    if request.xhr?
+    if params[:category_id] || (params[:product_name] && params[:product_ids])
+      category_id = params[:category_id] || @products[0].category_id
       render json: {
-        html_product: render_to_string(partial: "cate_product",
-          locals: {products: @products, id: params[:category_id]})
+        html_product: render_to_string(partial: "categories/cate_product",
+          locals: {products: @products, id: category_id})
       }
     else
       respond_to do |format|
@@ -70,15 +71,17 @@ class CategoriesController < ApplicationController
   end
 
   def load_product_outside
-    if params[:category_id]
+    @products = if params[:category_id]
       @category = Category.find_by id: params[:category_id]
-      @products = if params[:delete]
+      if params[:delete]
         @category.products
       else
         Product.not_in(@category.products.map(&:id))
       end
+    elsif params[:product_name] && params[:product_ids]
+      Product.by_ids(params[:product_ids]).search_by_name(params[:product_name])
     else
-      @products = []
+      []
     end
   end
 end
